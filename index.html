@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0284c7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Mr. Mohamed Sayed Yossif - Social Studies Teacher">
+    <meta property="og:description" content="Social Studies Teacher - Contact me now.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/mr-mohamedsayedyossif/Mr-.-Mohamed-sayed-yossif-digital-card/main/moham%20sayed%20-logo-gold.png">
+    <meta property="og:type" content="website">
+
+    <title>Mr. Mohamed Sayed Yossif - Social Studies Teacher</title>
+
+    <!-- External Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+
+    <style>
+        /* ===== REGISTER CUSTOM PROPERTY FOR HIGH-PERFORMANCE ANIMATION ===== */
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            --primary: #0284c7;
+            --primary-glow: rgba(2, 132, 199, 0.4);
+            --card-bg: #0a1628;
+            --card-border: rgba(255, 255, 255, 0.15);
+            --text-color: #ffffff;
+            --font-main: 'Outfit', 'Cairo', system-ui, -apple-system, sans-serif;
+            --accent-gold: #f0b846;
+            --accent-gold-light: #fbe3ad;
+            --color-phone: #60a5fa;
+            --color-whatsapp: #25d366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+        }
+
+        /* ===== WEBSITE BACKGROUND ===== */
+        body {
+            padding: 20px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background: #030d1a linear-gradient(135deg, #010409 0%, #0a192f 100%);
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Grid Pattern Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 3px;
+            border-radius: 12px;
+        }
+
+        .wrapper-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* ===== LIGHTNING BORDER ROTATION ANIMATION (PURE CSS) ===== */
+        @keyframes rotateBorder {
+            0% { --angle: 0deg; }
+            100% { --angle: 360deg; }
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            width: 100%;
+            padding: 28px 20px 24px 20px;
+            border-radius: 22px;
+            text-align: center;
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transform-origin: center center;
+            /* حركة أنعم وأكثر سلاسة للـ Card */
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Rotating Glowing Border for Card (ضوء رفيع جداً `1px` وبطيء جداً `25s`) */
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: conic-gradient(from var(--angle), transparent 50%, var(--primary) 75%, var(--accent-gold) 90%, #ffffff 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: rotateBorder 25s linear infinite;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: scale(0.8) translateY(0);
+        }
+
+        /* ===== LOGO CONTAINER ===== */
+        .logo-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 18px auto;
+            width: 150px;
+            height: 185px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        /* Glowing Border for Logo Box (إطار رفيع وبطيء) */
+        .logo-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: conic-gradient(from var(--angle), transparent 60%, rgba(56, 189, 248, 0.5) 80%, var(--accent-gold) 95%, #ffffff 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: rotateBorder 16s linear infinite;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            transform: scale(1.1);
+        }
+
+        /* ===== TEXT ===== */
+        .name-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff 40%, #bae6fd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .verified-badge {
+            font-size: 15px;
+            color: #38bdf8;
+        }
+
+        .job {
+            display: inline-block;
+            font-size: 11px;
+            color: #bae6fd;
+            margin: 6px 0 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .bio {
+            font-size: 13px;
+            color: rgba(186, 230, 253, 0.75);
+            margin-bottom: 22px;
+            line-height: 1.5;
+            padding: 0 4px;
+        }
+
+        /* ===== ITEMS LIST ===== */
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .item {
+            position: relative;
+            width: 100%;
+            border-radius: 14px;
+            text-decoration: none;
+            display: block;
+            padding: 1px;
+            /* حركة انسيابية ناعمة عند الضغط أو التمرير */
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+        /* Glowing Border for Items */
+        .item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: conic-gradient(from var(--angle), transparent 70%, var(--glow-color, #38bdf8) 90%, #ffffff 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: rotateBorder 12s linear infinite;
+        }
+
+        .item-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 13px;
+            background: linear-gradient(145deg, #0d1e36, #071222);
+        }
+
+        .item i {
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .item .link-text {
+            flex: 1;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-new {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .item.phone { --glow-color: var(--color-phone); }
+        .item.phone i { color: var(--color-phone); }
+
+        .item.whatsapp { --glow-color: var(--color-whatsapp); }
+        .item.whatsapp i { color: var(--color-whatsapp); }
+
+        .item.email { --glow-color: var(--accent-gold); }
+        .item.email i { color: var(--accent-gold); }
+
+        .item:active {
+            transform: scale(0.97);
+        }
+
+        @media (hover: hover) {
+            .item:hover {
+                transform: translateY(-2px);
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .card-copyright {
+            margin-top: 20px;
+            font-size: 10px;
+            color: rgba(186, 230, 253, 0.5);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper-container">
+        <!-- Main Card Container -->
+        <main class="card" id="mainCard" aria-label="Profile card">
+
+            <!-- Logo -->
+            <div class="logo-box" id="logoBox">
+                <img src="https://raw.githubusercontent.com/mr-mohamedsayedyossif/Mr-.-Mohamed-sayed-yossif-digital-card/main/moham%20sayed%20-logo-gold.png" alt="Mr. Mohamed Sayed Logo" class="logo-img">
+            </div>
+
+            <!-- Name Section -->
+            <div class="name-row">
+                <h1>Mr. Mohamed Sayed Yossif</h1>
+                <i class="fa-solid fa-circle-check verified-badge" aria-hidden="true" title="Verified Account"></i>
+            </div>
+
+            <p class="job">Social Studies Teacher</p>
+
+            <p class="bio">Passionate educator helping students explore the world through geography, history &amp; civics 🌍📚</p>
+
+            <!-- Contact Items -->
+            <div class="item-list">
+
+                <a href="tel:+201014443010" class="item phone" aria-label="Call 01014443010">
+                    <div class="item-content">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span class="link-text">01014443010</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/201018152862" target="_blank" rel="noopener noreferrer" class="item whatsapp" aria-label="WhatsApp: 01018152862">
+                    <div class="item-content">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        <span class="link-text">01018152862</span>
+                        <span class="badge badge-new">Online</span>
+                    </div>
+                </a>
+
+                <a href="mailto:mr.mohamed.yossif@gmail.com" class="item email" aria-label="Email: mr.mohamed.yossif@gmail.com">
+                    <div class="item-content">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <span class="link-text" style="font-size: 13px;">mr.mohamed.yossif@gmail.com</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="card-copyright">
+                &copy; 2026 All rights reserved to Mr. Mohamed Sayed Yossif.
+            </footer>
+        </main>
+    </div>
+
+    <!-- Lightweight Entry Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var mainCard = document.getElementById('mainCard');
+            if (mainCard) {
+                requestAnimationFrame(function() {
+                    mainCard.classList.add('visible');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
